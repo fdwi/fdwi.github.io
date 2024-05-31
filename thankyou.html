@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <link rel="stylesheet" href="stylety.css">
+</head>
+<body>
+    <div class="confirmation">
+        <h2>Thank you for your RSVP!</h2>
+        <p>We have received your response.</p>
+        <p id="rsvp-details"></p>
+    </div>
+    <script>
+        // Fungsi untuk mengambil parameter dari URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Ambil data dari query string
+        const name = getQueryParam('name');
+        const guests = getQueryParam('guests');
+
+        // Tampilkan data di halaman
+        document.getElementById('rsvp-details').innerHTML = `
+            <p>Name: ${name}</p>
+            <p>Number of guests: ${guests}</p>
+        `;
+    </script>
+</body>
+</html>
